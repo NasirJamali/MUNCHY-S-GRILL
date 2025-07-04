@@ -239,11 +239,11 @@ const MunchysGrillWebsite = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         {/* Animated Background Video Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-emerald-500/30 to-teal-600/20"></div>
         
-        {/* Floating Food Elements - Updated with PNG images without rounded corners */}
+        {/* Floating Food Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-24 h-24 animate-float-1">
             <img 
@@ -314,37 +314,38 @@ const MunchysGrillWebsite = () => {
         </div>
 
         <div className="relative container mx-auto px-4 pt-20 pb-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-80px)]">
             {/* Left Content */}
             <div className="text-white animate-slideInLeft">
-              <div className="mb-6">
+              <div className="mb-4">
                 <span className="bg-gradient-to-r from-orange-400 to-emerald-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
                   🔥 EAT IN - TAKE OUT - DELIVERY
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-                <span className="block animate-typewriter">TASTE THE</span>
-                <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow">
-                  ULTIMATE
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+                <span className="block animate-typewriter">IF YOU AIN'T THERE,</span>
+               
+                <span className="block animate-slideInUp">YOU AIN'T</span>
+                 <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow py-1 md:py-2">
+                  MUNCHING!
                 </span>
-                <span className="block animate-slideInUp">MUNCHY'S GRILL</span>
               </h1>
               
-              <p className="text-xl mb-8 text-gray-300 animate-fadeInUp max-w-lg">
+              <p className="text-lg md:text-xl mb-6 text-gray-300 animate-fadeInUp max-w-lg">
                 Experience the perfect blend of <span className="text-orange-400 font-bold">crispy edges</span>, 
                 <span className="text-amber-400 font-bold"> juicy centers</span>, and 
                 <span className="text-emerald-400 font-bold"> explosive flavors</span> that will blow your mind!
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 animate-slideInUp">
-                <button className="group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-emerald-500/50">
+              <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
+                <button className="group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-emerald-500/50">
                   <span className="flex items-center gap-2">
                     ORDER NOW 
                     <span className="group-hover:animate-bounce">🚀</span>
                   </span>
                 </button>
-                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
+                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
                   FIND LOCATIONS
                   <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
@@ -352,18 +353,18 @@ const MunchysGrillWebsite = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12 animate-fadeInUp">
+              <div className="grid grid-cols-3 gap-4 mt-8 animate-fadeInUp">
                 <div className="text-center">
-                  <div className="text-3xl font-black text-orange-400 animate-countUp">50K+</div>
-                  <div className="text-sm text-gray-400">Happy Customers</div>
+                  <div className="text-2xl font-black text-orange-400 animate-countUp">50K+</div>
+                  <div className="text-xs text-gray-400">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-amber-400 animate-countUp">15+</div>
-                  <div className="text-sm text-gray-400">Locations</div>
+                  <div className="text-2xl font-black text-amber-400 animate-countUp">15+</div>
+                  <div className="text-xs text-gray-400">Locations</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-emerald-400 animate-countUp">4.9★</div>
-                  <div className="text-sm text-gray-400">Rating</div>
+                  <div className="text-2xl font-black text-emerald-400 animate-countUp">4.9★</div>
+                  <div className="text-xs text-gray-400">Rating</div>
                 </div>
               </div>
             </div>
@@ -389,7 +390,7 @@ const MunchysGrillWebsite = () => {
                     </div>
                   </div>
                   
-                  {/* Floating Food Items Around Main Burger - Updated with PNG images */}
+                  {/* Floating Food Items Around Main Burger */}
                   <div className="absolute -top-8 -left-8 w-24 h-24 animate-orbit-1">
                     <div className="w-full h-full bg-transparent overflow-hidden">
                       <img 
@@ -641,7 +642,6 @@ const MunchysGrillWebsite = () => {
                 <p>Woodmere</p>
                 <p>NYC 11598</p>
                 <p>Next to the Woodmere Fire House.</p>
-                
               </div>
             </div>
             <div>
@@ -659,7 +659,6 @@ const MunchysGrillWebsite = () => {
               <div className="space-y-2 text-sm">
                 <p>munchygrillny@gmail.com</p>
                 <p>516-595-3500</p>
-            
               </div>
             </div>
             <div>
