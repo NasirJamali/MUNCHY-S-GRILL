@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown, MapPin, Clock, Phone, Mail, Facebook, Twitter, Instagram, Menu, X, Star, Award, Users, Utensils } from 'lucide-react';
 
 import burgerImg from '/public/burger.png';
-import friesImg from '/public/broast.png';
-import pizzaImg from '/public/pizza.png';
+import friesImg from '/public/Shawarma.png';
+import pizzaImg from '/public/Shawarma2.png';
 import saladImg from '/public/salad.png';
-import drinkImg from '/public/drink.png';
+import drinkImg from '/public/salad2.png';
 import logoImg from '/public/logo2.png';
 
 const MunchysGrillWebsite = () => {
@@ -42,42 +42,42 @@ const MunchysGrillWebsite = () => {
       name: 'Blooming Onion',
       description: 'Crispy Fresh Whole Blooming Onion with Special Dipping Sauce',
       price: '$8.99',
-      color: 'bg-yellow-400',
+      color: 'bg-orange-400',
       image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
     },
     {
       name: 'Basic Family Combo',
       description: 'A Simple Way to Get the Family Started. Includes 2 Burgers, 2 Sides, 2 Drinks',
       price: '$24.99',
-      color: 'bg-red-500',
+      color: 'bg-emerald-500',
       image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop'
     },
     {
       name: 'Loaded MUNCHYS GRILL',
       description: 'Double MUNCHYS GRILL Beef Patties, Loaded with Cheese, Bacon, and All the Fixings',
       price: '$12.99',
-      color: 'bg-pink-500',
+      color: 'bg-orange-500',
       image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
     },
     {
       name: 'Kids MUNCHYS GRILL',
       description: 'Simple MUNCHYS GRILL Beef Patty on a Bun, Perfect for Kids with Fries and Drink',
       price: '$7.99',
-      color: 'bg-blue-500',
+      color: 'bg-emerald-400',
       image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop'
     },
     {
       name: 'Philly Cheese Smash',
       description: 'MUNCHYS GRILL Beef Patty with Grilled Onions, Peppers, and Melted Cheese',
       price: '$11.99',
-      color: 'bg-teal-500',
+      color: 'bg-orange-300',
       image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop'
     },
     {
       name: 'Mexican Salad',
       description: 'Mexican Grilled Chicken with Greens, Corn, Beans, and Spicy Dressing',
       price: '$9.99',
-      color: 'bg-yellow-500',
+      color: 'bg-emerald-300',
       image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop'
     }
   ];
@@ -86,23 +86,26 @@ const MunchysGrillWebsite = () => {
     {
       title: 'EVERY SUN - THURS',
       subtitle: 'OPEN LATE ON THURSDAYS!',
-       date: ' 11AM - 1AM',
-      color: 'bg-gradient-to-br from-red-500 to-pink-600',
-      buttonColor: 'bg-blue-500 hover:bg-blue-600'
+      date: '11AM - 1AM',
+      color: 'bg-orange-500',
+      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      animation: 'animate-pulse-slow'
     },
     {
-       title: 'FRIDAY',
+      title: 'FRIDAY',
       subtitle: 'ONE HOUR BEFORE SHABAT',
       date: '11 AM',
-      color: 'bg-gradient-to-br from-blue-400 to-cyan-500',
-      buttonColor: 'bg-orange-500 hover:bg-orange-600'
+      color: 'bg-orange-500',
+      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      animation: 'animate-bounce-subtle'
     },
     {
       title: 'SATURDAY',
       subtitle: 'ONE HOUR AFTER SHABAT',
-        date: 'UNTIL 1AM',
-      color: 'bg-gradient-to-br from-green-400 to-blue-500',
-      buttonColor: 'bg-orange-500 hover:bg-orange-600'
+      date: 'UNTIL 1AM',
+      color: 'bg-orange-500',
+      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      animation: 'animate-pulse-slow'
     }
   ];
 
@@ -110,22 +113,26 @@ const MunchysGrillWebsite = () => {
     {
       icon: <MapPin className="w-8 h-8" />,
       title: 'CONVENIENT LOCATIONS',
-      description: 'Multiple locations across the city'
+      description: 'Multiple locations across the city',
+      color: 'bg-orange-400'
     },
     {
       icon: <Award className="w-8 h-8" />,
       title: 'GOURMET GOODNESS-FRIENDLY DEALS',
-      description: 'Quality food at affordable prices'
+      description: 'Quality food at affordable prices',
+      color: 'bg-orange-400'
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: 'SIMPLY SMASHING EXPERIENCES',
-      description: 'Creating memorable dining experiences'
+      description: 'Creating memorable dining experiences',
+      color: 'bg-orange-400'
     },
     {
       icon: <Utensils className="w-8 h-8" />,
       title: 'MOUTHWATERING FRESH MENU',
-      description: 'Fresh ingredients, bold flavors'
+      description: 'Fresh ingredients, bold flavors',
+      color: 'bg-orange-400'
     }
   ];
 
@@ -142,14 +149,15 @@ const MunchysGrillWebsite = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-gradient-to-br from-orange-400 via-emerald-500 to-teal-600 flex items-center justify-center z-50">
         <div className="flex flex-col items-center justify-center">
           <img 
             src={logoImg} 
             alt="Munchy's Grill Logo" 
-            className="w-24 h-24 object-contain mb-4"
+            className="w-40 h-40 object-contain mb-4"
+            style={{ marginTop: '14px' }}
             onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/96x96?text=Logo+Not+Available';
+              e.target.src = 'https://via.placeholder.com/128x128?text=Logo+Not+Available';
             }}
           />
           <div className="animate-spin w-16 h-16 border-4 border-white border-t-transparent rounded-full mb-4"></div>
@@ -170,14 +178,15 @@ const MunchysGrillWebsite = () => {
               <img 
                 src={logoImg} 
                 alt="Munchy's Grill Logo" 
-                className="w-full h-16 object-contain"
+                className="w-24 h-24 object-contain"
+                style={{ marginTop: '14px' }}
                 onError={(e) => {
                   // Fallback to gradient circle if logo doesn't load
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
               />
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center" style={{display: 'none'}}>
+              <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-full flex items-center justify-center" style={{display: 'none'}}>
                 <span className="text-white font-bold text-xl">M</span>
               </div>
             </div>
@@ -188,12 +197,12 @@ const MunchysGrillWebsite = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`font-semibold transition-colors ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-yellow-300'}`}
+                  className={`font-semibold transition-colors ${isScrolled ? 'text-gray-700 hover:text-emerald-500' : 'text-white hover:text-orange-300'}`}
                 >
                   {item.name}
                 </a>
               ))}
-              <button className="bg-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors">
+              <button className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
                 ORDER NOW
               </button>
             </div>
@@ -216,12 +225,12 @@ const MunchysGrillWebsite = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-orange-500 font-semibold"
+                  className="block px-3 py-2 text-gray-700 hover:text-emerald-500 font-semibold"
                 >
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-red-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors">
+              <button className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
                 ORDER NOW
               </button>
             </div>
@@ -232,7 +241,7 @@ const MunchysGrillWebsite = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         {/* Animated Background Video Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/30 to-red-600/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-emerald-500/30 to-teal-600/20"></div>
         
         {/* Floating Food Elements - Updated with PNG images without rounded corners */}
         <div className="absolute inset-0 overflow-hidden">
@@ -300,8 +309,8 @@ const MunchysGrillWebsite = () => {
 
         {/* Animated Gradient Orbs */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-yellow-400/30 to-orange-500/30 rounded-full blur-3xl animate-pulse-slow"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse-slower"></div>
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-orange-400/30 to-emerald-500/30 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-teal-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse-slower"></div>
         </div>
 
         <div className="relative container mx-auto px-4 pt-20 pb-8">
@@ -309,33 +318,33 @@ const MunchysGrillWebsite = () => {
             {/* Left Content */}
             <div className="text-white animate-slideInLeft">
               <div className="mb-6">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
+                <span className="bg-gradient-to-r from-orange-400 to-emerald-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
                   🔥 EAT IN - TAKE OUT - DELIVERY
                 </span>
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
                 <span className="block animate-typewriter">TASTE THE</span>
-                <span className="block bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 bg-clip-text text-transparent animate-glow">
+                <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow">
                   ULTIMATE
                 </span>
                 <span className="block animate-slideInUp">MUNCHY'S GRILL</span>
               </h1>
               
               <p className="text-xl mb-8 text-gray-300 animate-fadeInUp max-w-lg">
-                Experience the perfect blend of <span className="text-yellow-400 font-bold">crispy edges</span>, 
-                <span className="text-orange-400 font-bold"> juicy centers</span>, and 
-                <span className="text-red-400 font-bold"> explosive flavors</span> that will blow your mind!
+                Experience the perfect blend of <span className="text-orange-400 font-bold">crispy edges</span>, 
+                <span className="text-amber-400 font-bold"> juicy centers</span>, and 
+                <span className="text-emerald-400 font-bold"> explosive flavors</span> that will blow your mind!
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 animate-slideInUp">
-                <button className="group bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-red-500/50">
+                <button className="group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-emerald-500/50">
                   <span className="flex items-center gap-2">
                     ORDER NOW 
                     <span className="group-hover:animate-bounce">🚀</span>
                   </span>
                 </button>
-                <button className="group bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-blue-500/50 flex items-center gap-2">
+                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
                   FIND LOCATIONS
                   <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
@@ -345,15 +354,15 @@ const MunchysGrillWebsite = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-12 animate-fadeInUp">
                 <div className="text-center">
-                  <div className="text-3xl font-black text-yellow-400 animate-countUp">50K+</div>
+                  <div className="text-3xl font-black text-orange-400 animate-countUp">50K+</div>
                   <div className="text-sm text-gray-400">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-orange-400 animate-countUp">15+</div>
+                  <div className="text-3xl font-black text-amber-400 animate-countUp">15+</div>
                   <div className="text-sm text-gray-400">Locations</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-red-400 animate-countUp">4.9★</div>
+                  <div className="text-3xl font-black text-emerald-400 animate-countUp">4.9★</div>
                   <div className="text-sm text-gray-400">Rating</div>
                 </div>
               </div>
@@ -365,8 +374,8 @@ const MunchysGrillWebsite = () => {
                 {/* Main Burger Image */}
                 <div className="relative">
                   <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-red-500/20 rounded-full animate-spin-slow"></div>
-                    <div className="absolute inset-4 bg-gradient-to-br from-orange-400/30 to-pink-500/30 rounded-full animate-spin-reverse"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-emerald-500/20 rounded-full animate-spin-slow"></div>
+                    <div className="absolute inset-4 bg-gradient-to-br from-amber-400/30 to-emerald-500/30 rounded-full animate-spin-reverse"></div>
                     <div className="absolute inset-8 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 overflow-hidden group hover:scale-110 transition-transform duration-700">
                       <img 
                         src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=500&fit=crop" 
@@ -436,8 +445,8 @@ const MunchysGrillWebsite = () => {
               </div>
               
               {/* Glowing Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-red-500/10 rounded-full animate-pulse-glow"></div>
-              <div className="absolute inset-10 bg-gradient-to-br from-orange-400/5 to-pink-500/5 rounded-full animate-pulse-glow-reverse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-emerald-500/10 rounded-full animate-pulse-glow"></div>
+              <div className="absolute inset-10 bg-gradient-to-br from-amber-400/5 to-emerald-500/5 rounded-full animate-pulse-glow-reverse"></div>
             </div>
           </div>
         </div>
@@ -454,13 +463,13 @@ const MunchysGrillWebsite = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
-          HOURS OF OPERATION
+            HOURS OF OPERATION
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {promotions.map((promo, index) => (
               <div
                 key={index}
-                className={`${promo.color} p-8 rounded-3xl text-white transform hover:scale-105 transition-all duration-300 shadow-xl`}
+                className={`${promo.color} p-8 rounded-3xl text-white transform hover:scale-105 transition-all duration-300 shadow-xl ${promo.animation}`}
               >
                 <div className="text-center">
                   <h3 className="text-2xl font-bold mb-2">{promo.title}</h3>
@@ -517,7 +526,7 @@ const MunchysGrillWebsite = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <button className="bg-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-colors">
+            <button className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors">
               SHOW ME THE MENU
             </button>
           </div>
@@ -539,7 +548,7 @@ const MunchysGrillWebsite = () => {
               <div className="grid grid-cols-2 gap-6">
                 {features.map((feature, index) => (
                   <div key={index} className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                    <div className={`w-16 h-16 ${feature.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white`}>
                       {feature.icon}
                     </div>
                     <h3 className="font-bold text-sm mb-2">{feature.title}</h3>
@@ -548,13 +557,13 @@ const MunchysGrillWebsite = () => {
                 ))}
               </div>
               <div className="mt-8">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors">
+                <button className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-700 transition-colors">
                   GET TO KNOW US BETTER
                 </button>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-yellow-400 to-red-500 p-8 rounded-3xl relative overflow-hidden">
+              <div className="bg-gradient-to-br from-orange-400 to-emerald-500 p-8 rounded-3xl relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                   <img 
                     src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&h=400&fit=crop" 
@@ -591,7 +600,7 @@ const MunchysGrillWebsite = () => {
               <option>Miami - FL</option>
               <option>Los Angeles - CA</option>
             </select>
-            <button className="bg-red-600 text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition-colors">
+            <button className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors">
               ORDER NOW
             </button>
           </div>
@@ -606,7 +615,7 @@ const MunchysGrillWebsite = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((image, i) => (
-              <div key={i} className="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+              <div key={i} className="aspect-square bg-orange-400 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
                 <img 
                   src={image} 
                   alt={`Delicious Food ${i + 1}`} 
@@ -655,9 +664,9 @@ const MunchysGrillWebsite = () => {
             </div>
             <div>
               <div className="flex space-x-4 mb-4">
-                <Facebook className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
-                <Twitter className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
-                <Instagram className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
+                <Facebook className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
+                <Twitter className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
+                <Instagram className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
               </div>
             </div>
           </div>
@@ -745,10 +754,10 @@ const MunchysGrillWebsite = () => {
         
         @keyframes glow {
           0%, 100% {
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
           }
           50% {
-            text-shadow: 0 0 40px rgba(255, 140, 0, 0.8);
+            text-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
           }
         }
         
@@ -1026,6 +1035,13 @@ const MunchysGrillWebsite = () => {
         
         .animate-countUp {
           animation: countUp 1s ease-out 1s both;
+        }
+
+        .object-contain {
+          -o-object-fit: contain;
+          object-fit: contain;
+          margin-top: 14px;
+          width: 150px;
         }
       `}</style>
     </div>
