@@ -1,0 +1,1035 @@
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, MapPin, Clock, Phone, Mail, Facebook, Twitter, Instagram, Menu, X, Star, Award, Users, Utensils } from 'lucide-react';
+
+import burgerImg from '/public/burger.png';
+import friesImg from '/public/broast.png';
+import pizzaImg from '/public/pizza.png';
+import saladImg from '/public/salad.png';
+import drinkImg from '/public/drink.png';
+import logoImg from '/public/logo2.png';
+
+const MunchysGrillWebsite = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeLocation, setActiveLocation] = useState('S Town - NY');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const menuItems = [
+    { name: 'OUR STORY', href: '#story' },
+    { name: 'MENU', href: '#menu' },
+    { name: 'CATERING', href: '#catering' },
+    { name: 'LOCATIONS', href: '#locations' },
+  ];
+
+  const bestDishes = [
+    {
+      name: 'Blooming Onion',
+      description: 'Crispy Fresh Whole Blooming Onion with Special Dipping Sauce',
+      price: '$8.99',
+      color: 'bg-yellow-400',
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+    },
+    {
+      name: 'Basic Family Combo',
+      description: 'A Simple Way to Get the Family Started. Includes 2 Burgers, 2 Sides, 2 Drinks',
+      price: '$24.99',
+      color: 'bg-red-500',
+      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop'
+    },
+    {
+      name: 'Loaded MUNCHYS GRILL',
+      description: 'Double MUNCHYS GRILL Beef Patties, Loaded with Cheese, Bacon, and All the Fixings',
+      price: '$12.99',
+      color: 'bg-pink-500',
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+    },
+    {
+      name: 'Kids MUNCHYS GRILL',
+      description: 'Simple MUNCHYS GRILL Beef Patty on a Bun, Perfect for Kids with Fries and Drink',
+      price: '$7.99',
+      color: 'bg-blue-500',
+      image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop'
+    },
+    {
+      name: 'Philly Cheese Smash',
+      description: 'MUNCHYS GRILL Beef Patty with Grilled Onions, Peppers, and Melted Cheese',
+      price: '$11.99',
+      color: 'bg-teal-500',
+      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop'
+    },
+    {
+      name: 'Mexican Salad',
+      description: 'Mexican Grilled Chicken with Greens, Corn, Beans, and Spicy Dressing',
+      price: '$9.99',
+      color: 'bg-yellow-500',
+      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop'
+    }
+  ];
+
+  const promotions = [
+    {
+      title: 'EVERY SUN - THURS',
+      subtitle: 'OPEN LATE ON THURSDAYS!',
+       date: ' 11AM - 1AM',
+      color: 'bg-gradient-to-br from-red-500 to-pink-600',
+      buttonColor: 'bg-blue-500 hover:bg-blue-600'
+    },
+    {
+       title: 'FRIDAY',
+      subtitle: 'ONE HOUR BEFORE SHABAT',
+      date: '11 AM',
+      color: 'bg-gradient-to-br from-blue-400 to-cyan-500',
+      buttonColor: 'bg-orange-500 hover:bg-orange-600'
+    },
+    {
+      title: 'SATURDAY',
+      subtitle: 'ONE HOUR AFTER SHABAT',
+        date: 'UNTIL 1AM',
+      color: 'bg-gradient-to-br from-green-400 to-blue-500',
+      buttonColor: 'bg-orange-500 hover:bg-orange-600'
+    }
+  ];
+
+  const features = [
+    {
+      icon: <MapPin className="w-8 h-8" />,
+      title: 'CONVENIENT LOCATIONS',
+      description: 'Multiple locations across the city'
+    },
+    {
+      icon: <Award className="w-8 h-8" />,
+      title: 'GOURMET GOODNESS-FRIENDLY DEALS',
+      description: 'Quality food at affordable prices'
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'SIMPLY SMASHING EXPERIENCES',
+      description: 'Creating memorable dining experiences'
+    },
+    {
+      icon: <Utensils className="w-8 h-8" />,
+      title: 'MOUTHWATERING FRESH MENU',
+      description: 'Fresh ingredients, bold flavors'
+    }
+  ];
+
+  const galleryImages = [
+    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=300&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop'
+  ];
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 flex items-center justify-center z-50">
+        <div className="flex flex-col items-center justify-center">
+          <img 
+            src={logoImg} 
+            alt="Munchy's Grill Logo" 
+            className="w-24 h-24 object-contain mb-4"
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/96x96?text=Logo+Not+Available';
+            }}
+          />
+          <div className="animate-spin w-16 h-16 border-4 border-white border-t-transparent rounded-full mb-4"></div>
+          <p className="text-white text-lg">Loading delicious content...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-3">
+              {/* Logo - Using imported image */}
+              <img 
+                src={logoImg} 
+                alt="Munchy's Grill Logo" 
+                className="w-full h-16 object-contain"
+                onError={(e) => {
+                  // Fallback to gradient circle if logo doesn't load
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center" style={{display: 'none'}}>
+                <span className="text-white font-bold text-xl">M</span>
+              </div>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`font-semibold transition-colors ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-yellow-300'}`}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button className="bg-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors">
+                ORDER NOW
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className={`md:hidden ${isScrolled ? 'text-gray-800' : 'text-white'}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block px-3 py-2 text-gray-700 hover:text-orange-500 font-semibold"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button className="w-full bg-red-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors">
+                ORDER NOW
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+        {/* Animated Background Video Effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/30 to-red-600/20"></div>
+        
+        {/* Floating Food Elements - Updated with PNG images without rounded corners */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-24 h-24 animate-float-1">
+            <img 
+              src={burgerImg} 
+              alt="Burger" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+          <div className="absolute top-40 right-20 w-20 h-20 animate-float-2">
+            <img 
+              src={friesImg} 
+              alt="Fries" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+          <div className="absolute bottom-40 left-20 w-28 h-28 animate-float-3">
+            <img 
+              src={burgerImg} 
+              alt="Burger" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+          <div className="absolute bottom-20 right-10 w-24 h-24 animate-float-4">
+            <img 
+              src={pizzaImg} 
+              alt="Pizza" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+          <div className="absolute top-60 left-1/4 w-20 h-20 animate-float-5">
+            <img 
+              src={saladImg} 
+              alt="Salad" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 animate-float-6">
+            <img 
+              src={drinkImg} 
+              alt="Drink" 
+              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Animated Gradient Orbs */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-yellow-400/30 to-orange-500/30 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse-slower"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4 pt-20 pb-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+            {/* Left Content */}
+            <div className="text-white animate-slideInLeft">
+              <div className="mb-6">
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
+                  🔥 EAT IN - TAKE OUT - DELIVERY
+                </span>
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span className="block animate-typewriter">TASTE THE</span>
+                <span className="block bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 bg-clip-text text-transparent animate-glow">
+                  ULTIMATE
+                </span>
+                <span className="block animate-slideInUp">MUNCHY'S GRILL</span>
+              </h1>
+              
+              <p className="text-xl mb-8 text-gray-300 animate-fadeInUp max-w-lg">
+                Experience the perfect blend of <span className="text-yellow-400 font-bold">crispy edges</span>, 
+                <span className="text-orange-400 font-bold"> juicy centers</span>, and 
+                <span className="text-red-400 font-bold"> explosive flavors</span> that will blow your mind!
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 animate-slideInUp">
+                <button className="group bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-red-500/50">
+                  <span className="flex items-center gap-2">
+                    ORDER NOW 
+                    <span className="group-hover:animate-bounce">🚀</span>
+                  </span>
+                </button>
+                <button className="group bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-blue-500/50 flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  FIND LOCATIONS
+                  <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 mt-12 animate-fadeInUp">
+                <div className="text-center">
+                  <div className="text-3xl font-black text-yellow-400 animate-countUp">50K+</div>
+                  <div className="text-sm text-gray-400">Happy Customers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black text-orange-400 animate-countUp">15+</div>
+                  <div className="text-sm text-gray-400">Locations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black text-red-400 animate-countUp">4.9★</div>
+                  <div className="text-sm text-gray-400">Rating</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Content - Interactive Food Display */}
+            <div className="relative animate-slideInRight">
+              <div className="relative z-10 flex items-center justify-center">
+                {/* Main Burger Image */}
+                <div className="relative">
+                  <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-red-500/20 rounded-full animate-spin-slow"></div>
+                    <div className="absolute inset-4 bg-gradient-to-br from-orange-400/30 to-pink-500/30 rounded-full animate-spin-reverse"></div>
+                    <div className="absolute inset-8 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 overflow-hidden group hover:scale-110 transition-transform duration-700">
+                      <img 
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=500&fit=crop" 
+                        alt="Ultimate MUNCHY'S GRILL" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/500x500?text=Image+Not+Available';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Food Items Around Main Burger - Updated with PNG images */}
+                  <div className="absolute -top-8 -left-8 w-24 h-24 animate-orbit-1">
+                    <div className="w-full h-full bg-transparent overflow-hidden">
+                      <img 
+                        src={friesImg} 
+                        alt="Fries" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -top-8 -right-8 w-20 h-20 animate-orbit-2">
+                    <div className="w-full h-full bg-transparent overflow-hidden">
+                      <img 
+                        src={burgerImg} 
+                        alt="Burger" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -bottom-8 -left-8 w-18 h-18 animate-orbit-3">
+                    <div className="w-full h-full bg-transparent overflow-hidden">
+                      <img 
+                        src={burgerImg} 
+                        alt="Burger" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -bottom-8 -right-8 w-16 h-16 animate-orbit-4">
+                    <div className="w-full h-full bg-transparent overflow-hidden">
+                      <img 
+                        src={pizzaImg} 
+                        alt="Pizza" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Glowing Effects */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-red-500/10 rounded-full animate-pulse-glow"></div>
+              <div className="absolute inset-10 bg-gradient-to-br from-orange-400/5 to-pink-500/5 rounded-full animate-pulse-glow-reverse"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+          HOURS OF OPERATION
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {promotions.map((promo, index) => (
+              <div
+                key={index}
+                className={`${promo.color} p-8 rounded-3xl text-white transform hover:scale-105 transition-all duration-300 shadow-xl`}
+              >
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">{promo.title}</h3>
+                  <p className="text-lg mb-4">{promo.subtitle}</p>
+                  {promo.date && (
+                    <div className="text-3xl font-black mb-4">{promo.date}</div>
+                  )}
+                  {promo.description && (
+                    <p className="text-sm mb-6">{promo.description}</p>
+                  )}
+                  <button className={`${promo.buttonColor} px-6 py-3 rounded-full font-bold transition-colors`}>
+                    MORE INFO
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Best Dishes Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+            TRY OUR BEST DISHES
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {bestDishes.map((dish, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+              >
+                <div className={`${dish.color} h-4`}></div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
+                    <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">
+                      {dish.price}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4">{dish.description}</p>
+                  <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 overflow-hidden">
+                    <img 
+                      src={dish.image} 
+                      alt={dish.name} 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <button className="bg-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-colors">
+              SHOW ME THE MENU
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="story" className="py-20 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+            ABOUT US
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg text-gray-700 mb-8">
+                Started in woodmere NYC, MUNCHY'S GRILL in America. This local joint boasts a outstanding fusion of 
+                delicious burgers, crispy fries, and mouth-watering desserts.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                {features.map((feature, index) => (
+                  <div key={index} className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                      {feature.icon}
+                    </div>
+                    <h3 className="font-bold text-sm mb-2">{feature.title}</h3>
+                    <p className="text-xs text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8">
+                <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors">
+                  GET TO KNOW US BETTER
+                </button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-yellow-400 to-red-500 p-8 rounded-3xl relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20">
+                  <img 
+                    src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&h=400&fit=crop" 
+                    alt="Restaurant Interior" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/500x400?text=Image+Not+Available';
+                    }}
+                  />
+                </div>
+                <div className="relative text-center text-white">
+                  <h3 className="text-4xl font-black mb-4">MUNCHY'S GRILL</h3>
+                  <p className="text-lg">Authentic Flavors, Fresh Ingredients</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catering Section */}
+      <section id="catering" className="py-20 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-black mb-8 text-gray-800">
+            Order Catering From US!
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <select
+              value={activeLocation}
+              onChange={(e) => setActiveLocation(e.target.value)}
+              className="border border-gray-300 rounded-full px-6 py-3 font-semibold"
+            >
+              <option>S Town - NY</option>
+              <option>Miami - FL</option>
+              <option>Los Angeles - CA</option>
+            </select>
+            <button className="bg-red-600 text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition-colors">
+              ORDER NOW
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+            CHECK OUT OUR GRAMS!
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {galleryImages.map((image, i) => (
+              <div key={i} className="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+                <img 
+                  src={image} 
+                  alt={`Delicious Food ${i + 1}`} 
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">NEW YORK</h3>
+              <div className="space-y-2 text-sm">
+                <p>12 Irving PI,</p>
+                <p>Woodmere</p>
+                <p>NYC 11598</p>
+                <p>Next to the Woodmere Fire House.</p>
+                
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">MUNCHY'S GRILL</h3>
+              <div className="space-y-2 text-sm">
+                <p>About Us</p>
+                <p>Menu</p>
+                <p>Catering</p>
+                <p>Blog</p>
+                <p>Locations</p>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">CONTACT US!</h3>
+              <div className="space-y-2 text-sm">
+                <p>munchygrillny@gmail.com</p>
+                <p>516-595-3500</p>
+            
+              </div>
+            </div>
+            <div>
+              <div className="flex space-x-4 mb-4">
+                <Facebook className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
+                <Twitter className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
+                <Instagram className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>Copyright © 2025 - Munchy's Grill Burgers. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-100px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes typewriter {
+          from {
+            width: 0;
+          }
+          to {
+            width: 100%;
+          }
+        }
+        
+        @keyframes glow {
+          0%, 100% {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+          }
+          50% {
+            text-shadow: 0 0 40px rgba(255, 140, 0, 0.8);
+          }
+        }
+        
+        @keyframes float1 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+        }
+        
+        @keyframes float2 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(-5deg);
+          }
+        }
+        
+        @keyframes float3 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-25px) rotate(5deg);
+          }
+        }
+        
+        @keyframes float4 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-18px) rotate(-5deg);
+          }
+        }
+        
+        @keyframes float5 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-22px) rotate(5deg);
+          }
+        }
+        
+        @keyframes float6 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(-5deg);
+          }
+        }
+        
+        @keyframes orbit1 {
+          0% {
+            transform: rotate(0deg) translateX(120px) rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg) translateX(120px) rotate(-360deg);
+          }
+        }
+        
+        @keyframes orbit2 {
+          0% {
+            transform: rotate(90deg) translateX(120px) rotate(-90deg);
+          }
+          100% {
+            transform: rotate(450deg) translateX(120px) rotate(-450deg);
+          }
+        }
+        
+        @keyframes orbit3 {
+          0% {
+            transform: rotate(180deg) translateX(120px) rotate(-180deg);
+          }
+          100% {
+            transform: rotate(540deg) translateX(120px) rotate(-540deg);
+          }
+        }
+        
+        @keyframes orbit4 {
+          0% {
+            transform: rotate(270deg) translateX(120px) rotate(-270deg);
+          }
+          100% {
+            transform: rotate(630deg) translateX(120px) rotate(-630deg);
+          }
+        }
+        
+        @keyframes spinSlow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes spinReverse {
+          from {
+            transform: rotate(360deg);
+          }
+          to {
+            transform: rotate(0deg);
+          }
+        }
+        
+        @keyframes pulseSlow {
+          0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.6;
+            transform: scale(1.1);
+          }
+        }
+        
+        @keyframes pulseSlower {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1.2);
+          }
+        }
+        
+        @keyframes pulseGlow {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.4;
+            transform: scale(1.05);
+          }
+        }
+        
+        @keyframes pulseGlowReverse {
+          0%, 100% {
+            opacity: 0.1;
+            transform: scale(1.05);
+          }
+          50% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+        }
+        
+        @keyframes bounceSubtle {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
+        
+        @keyframes countUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        
+        .animate-fadeInLeft {
+          animation: fadeInLeft 1s ease-out;
+        }
+        
+        .animate-fadeInRight {
+          animation: fadeInRight 1s ease-out;
+        }
+        
+        .animate-slideInLeft {
+          animation: slideInLeft 1.2s ease-out;
+        }
+        
+        .animate-slideInRight {
+          animation: slideInRight 1.2s ease-out;
+        }
+        
+        .animate-slideInUp {
+          animation: slideInUp 1s ease-out 0.3s both;
+        }
+        
+        .animate-fadeInUp {
+          animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .animate-typewriter {
+          animation: slideInUp 1s ease-out;
+        }
+        
+        .animate-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+        
+        .animate-float-1 {
+          animation: float1 6s ease-in-out infinite;
+        }
+        
+        .animate-float-2 {
+          animation: float2 8s ease-in-out infinite;
+        }
+        
+        .animate-float-3 {
+          animation: float3 7s ease-in-out infinite;
+        }
+        
+        .animate-float-4 {
+          animation: float4 9s ease-in-out infinite;
+        }
+        
+        .animate-float-5 {
+          animation: float5 5s ease-in-out infinite;
+        }
+        
+        .animate-float-6 {
+          animation: float6 7s ease-in-out infinite;
+        }
+        
+        .animate-orbit-1 {
+          animation: orbit1 20s linear infinite;
+        }
+        
+        .animate-orbit-2 {
+          animation: orbit2 25s linear infinite;
+        }
+        
+        .animate-orbit-3 {
+          animation: orbit3 30s linear infinite;
+        }
+        
+        .animate-orbit-4 {
+          animation: orbit4 35s linear infinite;
+        }
+        
+        .animate-spin-slow {
+          animation: spinSlow 20s linear infinite;
+        }
+        
+        .animate-spin-reverse {
+          animation: spinReverse 15s linear infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulseSlow 4s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slower {
+          animation: pulseSlower 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+          animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow-reverse {
+          animation: pulseGlowReverse 4s ease-in-out infinite;
+        }
+        
+        .animate-bounce-subtle {
+          animation: bounceSubtle 2s ease-in-out infinite;
+        }
+        
+        .animate-countUp {
+          animation: countUp 1s ease-out 1s both;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default MunchysGrillWebsite;
