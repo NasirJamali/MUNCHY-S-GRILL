@@ -75,7 +75,7 @@ const MunchysGrillWebsite = () => {
       description: 'Your choice of meat in a white or whole wheat wrap, with your sauce and toppings. Simple, fresh, and fire.',
       price: '$17.50',
       color: 'bg-orange-300',
-      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop',
+      image: '/public/Shawarma.png',
       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-5-munchys-wrap_dbebf7a2-1009-43df-a8f6-731967979343'
     },
     {
