@@ -39,46 +39,52 @@ const MunchysGrillWebsite = () => {
 
   const bestDishes = [
     {
-      name: 'Blooming Onion',
-      description: 'Crispy Fresh Whole Blooming Onion with Special Dipping Sauce',
-      price: '$8.99',
+      name: 'Classic Burger',
+      description: 'The Classic Burger stacked with mouth watering sauce and toppings or add double meat your way.',
+      price: '$17.50',
       color: 'bg-orange-400',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop',
+       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-1-classic-burger_78f6f67c-3cb5-46f3-91d3-c28ca808f071'
     },
     {
-      name: 'Basic Family Combo',
-      description: 'A Simple Way to Get the Family Started. Includes 2 Burgers, 2 Sides, 2 Drinks',
-      price: '$24.99',
+      name: 'Cheese Burger',
+      description: 'Juicy beef patty with melted cheese and your choice of toppings. Classic with a kick.',
+      price: '$19.50',
       color: 'bg-emerald-500',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop',
+       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-2-cheese-burger_91bb5624-2209-44d1-8079-bbfe1d4d277c'
     },
     {
-      name: 'Loaded MUNCHYS GRILL',
-      description: 'Double MUNCHYS GRILL Beef Patties, Loaded with Cheese, Bacon, and All the Fixings',
-      price: '$12.99',
+      name: 'Schnitzel Burger',
+      description: 'Stacked with a beef patty and crispy fried schnitzel along your choice of toppings. Big, bold, and packed with flavor.',
+      price: '$26.00',
       color: 'bg-orange-500',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop',
+             link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-3-schnitzel-burger_551624fb-c85c-44a2-9c10-557cb57b455b'
     },
     {
-      name: 'Kids MUNCHYS GRILL',
-      description: 'Simple MUNCHYS GRILL Beef Patty on a Bun, Perfect for Kids with Fries and Drink',
-      price: '$7.99',
+      name: 'Shnitzel Baguette',
+      description: 'Golden crunchy shnitzel on a toasted baguette with your choice of toppings.',
+      price: '$17.50',
       color: 'bg-emerald-400',
-      image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-4-shnitzel-baguette_9087235a-51d5-4c49-9582-662288758852'
     },
     {
-      name: 'Philly Cheese Smash',
-      description: 'MUNCHYS GRILL Beef Patty with Grilled Onions, Peppers, and Melted Cheese',
-      price: '$11.99',
+      name: 'Munchys Wrap',
+      description: 'Your choice of meat in a white or whole wheat wrap, with your sauce and toppings. Simple, fresh, and fire.',
+      price: '$17.50',
       color: 'bg-orange-300',
-      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-5-munchys-wrap_dbebf7a2-1009-43df-a8f6-731967979343'
     },
     {
-      name: 'Mexican Salad',
-      description: 'Mexican Grilled Chicken with Greens, Corn, Beans, and Spicy Dressing',
-      price: '$9.99',
+      name: 'Munchys Salad',
+      description: 'A hearty salad made to your taste.',
+      price: '$18.00',
       color: 'bg-emerald-300',
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-30-munchys-salad_ccabd6ac-bf1c-4534-bf7d-05065063b43b'
     }
   ];
 
@@ -202,9 +208,13 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
-                ORDER NOW
-              </button>
+            <button
+  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+>
+  ORDER NOW
+</button>
+
             </div>
 
             {/* Mobile Menu Button */}
@@ -230,9 +240,15 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
-                ORDER NOW
-              </button>
+           <button
+  onClick={() =>
+    window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")
+  }
+  className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+>
+  ORDER NOW
+</button>
+
             </div>
           </div>
         )}
@@ -324,7 +340,7 @@ const MunchysGrillWebsite = () => {
               </div>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
-                <span className="block animate-typewriter">IF YOU AIN'T THERE,</span>
+                <span className="block animate-typewriter">IF YOU AIN'T THERE...</span>
                
                 <span className="block animate-slideInUp">YOU AIN'T</span>
                  <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow py-1 md:py-2">
@@ -333,18 +349,20 @@ const MunchysGrillWebsite = () => {
               </h1>
               
               <p className="text-lg md:text-xl mb-6 text-gray-300 animate-fadeInUp max-w-lg">
-                Experience the perfect blend of <span className="text-orange-400 font-bold">crispy edges</span>, 
-                <span className="text-amber-400 font-bold"> juicy centers</span>, and 
-                <span className="text-emerald-400 font-bold"> explosive flavors</span> that will blow your mind!
+                Savor the sizzle at <span className="text-orange-400 font-bold">America’s go-to spot</span>, for 
+                <span className="text-amber-400 font-bold"> Kosher Smashed Burgers, </span> Shawarma, and Flame-Grilled Chicken 
+                <span className="text-emerald-400 font-bold">only at Munchys Grill.
+Real Flavor</span> Real Kosher. Real Munch.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
-                <button className="group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-emerald-500/50">
-                  <span className="flex items-center gap-2">
-                    ORDER NOW 
-                    <span className="group-hover:animate-bounce">🚀</span>
-                  </span>
-                </button>
+             <button
+  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+>
+  ORDER NOW
+</button>
+
                 <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
                   FIND LOCATIONS
@@ -495,41 +513,47 @@ const MunchysGrillWebsite = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
-            TRY OUR BEST DISHES
+           Burgers/Baguette Sandwiches
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bestDishes.map((dish, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-              >
-                <div className={`${dish.color} h-4`}></div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
-                    <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">
-                      {dish.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 mb-4">{dish.description}</p>
-                  <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 overflow-hidden">
-                    <img 
-                      src={dish.image} 
-                      alt={dish.name} 
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                      onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {bestDishes.map((dish, index) => (
+    <button
+      key={index}
+      onClick={() => window.open(dish.link, '_blank')}
+      className="text-left bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+    >
+      <div className={`${dish.color} h-4`}></div>
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
+          <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">
+            {dish.price}
+          </span>
+        </div>
+        <p className="text-gray-600 mb-4">{dish.description}</p>
+        <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 overflow-hidden">
+          <img 
+            src={dish.image} 
+            alt={dish.name} 
+            className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
+            }}
+          />
+        </div>
+      </div>
+    </button>
+  ))}
+</div>
+
           <div className="text-center mt-12">
-            <button className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors">
-              SHOW ME THE MENU
-            </button>
+           <button
+  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+  className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors"
+>
+  SHOW ME THE MENU
+</button>
+
           </div>
         </div>
       </section>
@@ -601,9 +625,13 @@ const MunchysGrillWebsite = () => {
               <option>Miami - FL</option>
               <option>Los Angeles - CA</option>
             </select>
-            <button className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors">
-              ORDER NOW
-            </button>
+          <button
+  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+  className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors"
+>
+  ORDER NOW
+</button>
+
           </div>
         </div>
       </section>
