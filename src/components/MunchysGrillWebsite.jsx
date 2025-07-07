@@ -356,18 +356,21 @@ Real Flavor</span> Real Kosher. Real Munch.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
-             <button
-  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
-  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
->
-  ORDER NOW
-</button>
+<div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+  <button
+    onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+    className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+  >
+    ORDER NOW
+  </button>
 
-                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  FIND LOCATIONS
-                  <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
-                </button>
+  <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
+    <MapPin className="w-5 h-5" />
+    FIND LOCATIONS
+    <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
+  </button>
+</div>
+
               </div>
 
               {/* Stats */}
