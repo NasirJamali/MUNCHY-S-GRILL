@@ -75,7 +75,7 @@ const MunchysGrillWebsite = () => {
       description: 'Your choice of meat in a white or whole wheat wrap, with your sauce and toppings. Simple, fresh, and fire.',
       price: '$17.50',
       color: 'bg-orange-300',
-      image: '/Shawarma.png',
+image: '/Shawarma.png',
       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-5-munchys-wrap_dbebf7a2-1009-43df-a8f6-731967979343'
     },
     {
@@ -261,36 +261,9 @@ const MunchysGrillWebsite = () => {
         
         {/* Floating Food Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-24 h-24 animate-float-1">
-            <img 
-              src={burgerImg} 
-              alt="Burger" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute top-40 right-20 w-20 h-20 animate-float-2">
-            <img 
-              src={friesImg} 
-              alt="Fries" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute bottom-40 left-20 w-28 h-28 animate-float-3">
-            <img 
-              src={burgerImg} 
-              alt="Burger" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
+          
+        
+         
           <div className="absolute bottom-20 right-10 w-24 h-24 animate-float-4">
             <img 
               src={pizzaImg} 
@@ -301,26 +274,8 @@ const MunchysGrillWebsite = () => {
               }}
             />
           </div>
-          <div className="absolute top-60 left-1/4 w-20 h-20 animate-float-5">
-            <img 
-              src={saladImg} 
-              alt="Salad" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 animate-float-6">
-            <img 
-              src={drinkImg} 
-              alt="Drink" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
+         
+       
         </div>
 
         {/* Animated Gradient Orbs */}
@@ -374,11 +329,11 @@ Real Flavor</span> Real Kosher. Real Munch.
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 mt-8 animate-fadeInUp">
                 <div className="text-center">
-                  <div className="text-2xl font-black text-orange-400 animate-countUp">50K+</div>
+                  <div className="text-2xl font-black text-orange-400 animate-countUp">5K+</div>
                   <div className="text-xs text-gray-400">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-black text-amber-400 animate-countUp">15+</div>
+                  <div className="text-2xl font-black text-amber-400 animate-countUp">3+</div>
                   <div className="text-xs text-gray-400">Locations</div>
                 </div>
                 <div className="text-center">
@@ -513,7 +468,7 @@ Real Flavor</span> Real Kosher. Real Munch.
       {/* Best Dishes Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+          <h2 className="text-4xl font-black text-center mb-12 text-gray-800">
            Burgers/Baguette Sandwiches
           </h2>
          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -562,7 +517,7 @@ Real Flavor</span> Real Kosher. Real Munch.
       {/* About Section */}
       <section id="story" className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
+          <h2 className="text-5xl font-black 600 text-center mb-12 text-gray-800">
             ABOUT US
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
