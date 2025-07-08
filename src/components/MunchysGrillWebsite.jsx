@@ -32,7 +32,7 @@ const MunchysGrillWebsite = () => {
 
   const menuItems = [
     { name: 'OUR STORY', href: '#story' },
-    { name: 'MENU', href: '#menu' },
+    { name: 'MENU', href: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place' },
     { name: 'CATERING', href: '#catering' },
     { name: 'LOCATIONS', href: '#locations' },
   ];
@@ -264,16 +264,7 @@ image: '/Shawarma.png',
           
         
          
-          <div className="absolute bottom-20 right-10 w-24 h-24 animate-float-4">
-            <img 
-              src={pizzaImg} 
-              alt="Pizza" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
+        
          
        
         </div>
