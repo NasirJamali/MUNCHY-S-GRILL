@@ -622,7 +622,7 @@ Real Flavor</span> Real Kosher. Real Munch.
               onChange={(e) => setActiveLocation(e.target.value)}
               className="border border-gray-300 rounded-full px-6 py-3 font-semibold"
             >
-              <option>S Town - NY</option>
+              <option>5 Town - NY</option>
               <option>Miami - FL</option>
               <option>Los Angeles - CA</option>
             </select>
