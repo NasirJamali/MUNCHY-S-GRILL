@@ -11,8 +11,10 @@ import logoImg from '/public/logo2.png';
 const MunchysGrillWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeLocation, setActiveLocation] = useState('S Town - NY');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showNavOrderOptions, setShowNavOrderOptions] = useState(false);
+  const [showHeroOrderOptions, setShowHeroOrderOptions] = useState(false);
+  const [showHoursPopup, setShowHoursPopup] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,56 +32,86 @@ const MunchysGrillWebsite = () => {
     };
   }, []);
 
+  const handleNavOrderClick = (e) => {
+    e.stopPropagation();
+    setShowNavOrderOptions(!showNavOrderOptions);
+    setShowHeroOrderOptions(false); // Close Hero popup
+    setIsMenuOpen(false); // Close mobile menu
+  };
+
+  const handleHeroOrderClick = (e) => {
+    e.stopPropagation();
+    setShowHeroOrderOptions(!showHeroOrderOptions);
+    setShowNavOrderOptions(false); // Close Nav popup
+    setIsMenuOpen(false); // Close mobile menu
+  };
+
   const menuItems = [
     { name: 'OUR STORY', href: '#story' },
-    { name: 'MENU', href: '#menu' },
+    { name: 'MENU', href: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place' },
     { name: 'CATERING', href: '#catering' },
     { name: 'LOCATIONS', href: '#locations' },
   ];
 
   const bestDishes = [
     {
-      name: 'Blooming Onion',
-      description: 'Crispy Fresh Whole Blooming Onion with Special Dipping Sauce',
-      price: '$8.99',
+      name: 'Classic Burger',
+      description: 'The Classic Burger stacked with mouth watering sauce and toppings or add double meat your way.',
+      price: '$17.50',
       color: 'bg-orange-400',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+      image: 'ClassicBurger.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-1-classic-burger_78f6f67c-3cb5-46f3-91d3-c28ca808f071'
     },
     {
-      name: 'Basic Family Combo',
-      description: 'A Simple Way to Get the Family Started. Includes 2 Burgers, 2 Sides, 2 Drinks',
-      price: '$24.99',
+      name: 'Cheese Burger',
+      description: 'Juicy beef patty with melted cheese and your choice of toppings. Classic with a kick.',
+      price: '$19.50',
       color: 'bg-emerald-500',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-2-cheese-burger_91bb5624-2209-44d1-8079-bbfe1d4d277c'
     },
     {
-      name: 'Loaded MUNCHYS GRILL',
-      description: 'Double MUNCHYS GRILL Beef Patties, Loaded with Cheese, Bacon, and All the Fixings',
-      price: '$12.99',
+      name: 'Schnitzel Burger',
+      description: 'Stacked with a beef patty and crispy fried schnitzel along your choice of toppings. Big, bold, and packed with flavor.',
+      price: '$26.00',
       color: 'bg-orange-500',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop'
+      image: '/SchnitzelBurger.png',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-3-schnitzel-burger_551624fb-c85c-44a2-9c10-557cb57b455b'
     },
     {
-      name: 'Kids MUNCHYS GRILL',
-      description: 'Simple MUNCHYS GRILL Beef Patty on a Bun, Perfect for Kids with Fries and Drink',
-      price: '$7.99',
+      name: 'Shnitzel Baguette',
+      description: 'Golden crunchy shnitzel on a toasted baguette with your choice of toppings.',
+      price: '$17.50',
       color: 'bg-emerald-400',
-      image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop'
+      image: '/ShnitzelBaguette.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-4-shnitzel-baguette_9087235a-51d5-4c49-9582-662288758852'
     },
     {
-      name: 'Philly Cheese Smash',
-      description: 'MUNCHYS GRILL Beef Patty with Grilled Onions, Peppers, and Melted Cheese',
-      price: '$11.99',
+      name: 'Munchys Wrap',
+      description: 'Your choice of meat in a white or whole wheat wrap, with your sauce and toppings. Simple, fresh, and fire.',
+      price: '$17.50',
       color: 'bg-orange-300',
-      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=200&fit=crop'
+      image: '/munchyswrap.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-5-munchys-wrap_dbebf7a2-1009-43df-a8f6-731967979343'
     },
     {
-      name: 'Mexican Salad',
-      description: 'Mexican Grilled Chicken with Greens, Corn, Beans, and Spicy Dressing',
-      price: '$9.99',
+      name: 'Mazalito Chicken Shawarma',
+      description: 'Tender, spiced chicken shawarma served your way — in a warm laffa, soft pita, or fresh wrap. Customize with your favorite fresh veggies, each added to your taste.',
+      price: '$19.00',
       color: 'bg-emerald-300',
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop'
+      image: '/MazalitoShawarma.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-6-mazalito-chicken-shawarma_d4759acf-fbd4-456b-9501-082bb0f158ba'
     }
+  ];
+
+  const hoursOfOperation = [
+    { day: 'Sunday', hours: '11:00 AM - 1:00 AM' },
+    { day: 'Monday', hours: '11:00 AM - 1:00 AM' },
+    { day: 'Tuesday', hours: '11:00 AM - 1:00 AM' },
+    { day: 'Wednesday', hours: '11:00 AM - 1:00 AM' },
+    { day: 'Thursday', hours: '11:00 AM - 1:00 AM' },
+    { day: 'Friday', hours: '11:00 AM - One hour before Shabat' },
+    { day: 'Saturday', hours: 'One hour after Shabat - 1:00 AM' },
   ];
 
   const promotions = [
@@ -88,7 +120,7 @@ const MunchysGrillWebsite = () => {
       subtitle: 'OPEN LATE ON THURSDAYS!',
       date: '11AM - 1AM',
       color: 'bg-orange-500',
-      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      buttonColor: 'bg-emerald-700 hover:bg-emerald-800',
       animation: 'animate-pulse-slow'
     },
     {
@@ -96,7 +128,7 @@ const MunchysGrillWebsite = () => {
       subtitle: 'ONE HOUR BEFORE SHABAT',
       date: '11 AM',
       color: 'bg-orange-500',
-      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      buttonColor: 'bg-emerald-700 hover:bg-emerald-800',
       animation: 'animate-bounce-subtle'
     },
     {
@@ -104,7 +136,7 @@ const MunchysGrillWebsite = () => {
       subtitle: 'ONE HOUR AFTER SHABAT',
       date: 'UNTIL 1AM',
       color: 'bg-orange-500',
-      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      buttonColor: 'bg-emerald-700 hover:bg-emerald-800',
       animation: 'animate-pulse-slow'
     }
   ];
@@ -112,8 +144,8 @@ const MunchysGrillWebsite = () => {
   const features = [
     {
       icon: <MapPin className="w-8 h-8" />,
-      title: 'CONVENIENT LOCATIONS',
-      description: 'Multiple locations across the city',
+      title: 'CONVENIENT LOCATION',
+      description: 'Located in the heart of Woodmere',
       color: 'bg-orange-400'
     },
     {
@@ -137,14 +169,14 @@ const MunchysGrillWebsite = () => {
   ];
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=300&fit=crop',
+    '/HamsaLamb.jpg',
     'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop',
+    '/MazalitoShawarma.jpg',
     'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=300&fit=crop',
     'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop'
+    '/munchyswrap.jpg',
+    '/ShnitzelBaguette.jpg',
+    '/salad.png'
   ];
 
   if (isLoading) {
@@ -174,14 +206,12 @@ const MunchysGrillWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
-              {/* Logo - Using imported image */}
               <img 
                 src={logoImg} 
                 alt="Munchy's Grill Logo" 
                 className="w-24 h-24 object-contain"
                 style={{ marginTop: '14px' }}
                 onError={(e) => {
-                  // Fallback to gradient circle if logo doesn't load
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
@@ -191,7 +221,6 @@ const MunchysGrillWebsite = () => {
               </div>
             </div>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <a
@@ -202,24 +231,62 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
-                ORDER NOW
-              </button>
+              <div className="relative">
+                <button
+                  onClick={handleNavOrderClick}
+                  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                >
+                  ORDER NOW
+                </button>
+                {showNavOrderOptions && (
+                  <div className="absolute right-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
+                    <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
+                      <h3 className="text-white font-semibold">Order Options</h3>
+                      <button
+                        onClick={() => setShowNavOrderOptions(false)}
+                        className="text-white hover:text-gray-200"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => {
+                        window.open("tel:5165953500", "_blank");
+                        setShowNavOrderOptions(false);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
+                    >
+                      Call Now
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
+                        setShowNavOrderOptions(false);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
+                    >
+                      View Menu
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className={`md:hidden ${isScrolled ? 'text-gray-800' : 'text-white'}`}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+                setShowNavOrderOptions(false);
+                setShowHeroOrderOptions(false);
+              }}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
+          <div className="md:hidden bg-white border-t z-40">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
                 <a
@@ -230,155 +297,147 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
-                ORDER NOW
-              </button>
+              <div className="relative">
+                <button
+                  onClick={handleNavOrderClick}
+                  className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                >
+                  ORDER NOW
+                </button>
+                {showNavOrderOptions && (
+                  <div className="mt-2 w-full bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
+                    <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
+                      <h3 className="text-white font-semibold">Order Options</h3>
+                      <button
+                        onClick={() => setShowNavOrderOptions(false)}
+                        className="text-white hover:text-gray-200"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => {
+                        window.open("tel:5165953500", "_blank");
+                        setShowNavOrderOptions(false);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
+                    >
+                      Call Now
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
+                        setShowNavOrderOptions(false);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
+                    >
+                      View Menu
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-        {/* Animated Background Video Effect */}
+      <section className="relative min-h-[calc(100vh-80px)] bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-emerald-500/30 to-teal-600/20"></div>
         
-        {/* Floating Food Elements - Updated with PNG images without rounded corners */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-24 h-24 animate-float-1">
-            <img 
-              src={burgerImg} 
-              alt="Burger" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute top-40 right-20 w-20 h-20 animate-float-2">
-            <img 
-              src={friesImg} 
-              alt="Fries" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute bottom-40 left-20 w-28 h-28 animate-float-3">
-            <img 
-              src={burgerImg} 
-              alt="Burger" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute bottom-20 right-10 w-24 h-24 animate-float-4">
-            <img 
-              src={pizzaImg} 
-              alt="Pizza" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute top-60 left-1/4 w-20 h-20 animate-float-5">
-            <img 
-              src={saladImg} 
-              alt="Salad" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 animate-float-6">
-            <img 
-              src={drinkImg} 
-              alt="Drink" 
-              className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x300?text=Image+Not+Available';
-              }}
-            />
-          </div>
-        </div>
+        <div className="absolute inset-0 overflow-hidden"></div>
 
-        {/* Animated Gradient Orbs */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-orange-400/30 to-emerald-500/30 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-teal-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse-slower"></div>
         </div>
 
         <div className="relative container mx-auto px-4 pt-20 pb-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-            {/* Left Content */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-80px)]">
             <div className="text-white animate-slideInLeft">
-              <div className="mb-6">
+              <div className="mb-4">
                 <span className="bg-gradient-to-r from-orange-400 to-emerald-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
                   🔥 EAT IN - TAKE OUT - DELIVERY
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-                <span className="block animate-typewriter">IF AIN'T THERE</span>
-                <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow">
-                  ULTIMATE
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+                <span className="block animate-typewriter">IF YOU AIN'T HERE...</span>
+                <span className="block animate-slideInUp">YOU AIN'T</span>
+                <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow py-1 md:py-2">
+                  MUNCHING!
                 </span>
-                <span className="block animate-slideInUp">YOU AIN'T MUNCHING!</span>
               </h1>
               
-              <p className="text-xl mb-8 text-gray-300 animate-fadeInUp max-w-lg">
-                Experience the perfect blend of <span className="text-orange-400 font-bold">crispy edges</span>, 
-                <span className="text-amber-400 font-bold"> juicy centers</span>, and 
-                <span className="text-emerald-400 font-bold"> explosive flavors</span> that will blow your mind!
+              <p className="text-lg md:text-xl mb-6 text-gray-300 animate-fadeInUp max-w-lg">
+                Savor the sizzle at <span className="text-orange-400 font-bold">5 Town’s go-to spot</span>, for 
+                <span className="text-amber-400 font-bold"> Kosher Burgers, </span> Shawarma, and Flame-Grilled Chicken 
+                <span className="text-emerald-400 font-bold"> only at Munchys Grill.
+                Real Flavor</span> Real Kosher. Real Munch.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 animate-slideInUp">
-                <button className="group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-emerald-500/50">
-                  <span className="flex items-center gap-2">
-                    ORDER NOW 
-                    <span className="group-hover:animate-bounce">🚀</span>
-                  </span>
-                </button>
-                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  FIND LOCATIONS
-                  <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
-                </button>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12 animate-fadeInUp">
-                <div className="text-center">
-                  <div className="text-3xl font-black text-orange-400 animate-countUp">50K+</div>
-                  <div className="text-sm text-gray-400">Happy Customers</div>
+              <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
+                <div className="w-full sm:w-auto">
+                  <button
+                    onClick={handleHeroOrderClick}
+                    className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-110"
+                  >
+                    ORDER NOW
+                  </button>
+                  {showHeroOrderOptions && (
+                    <div className="absolute left-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
+                      <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
+                        <h3 className="text-white font-semibold">Order Options</h3>
+                        <button
+                          onClick={() => setShowHeroOrderOptions(false)}
+                          className="text-white hover:text-gray-200"
+                        >
+                          <X className="w-5 h-5" />
+                        </button>
+                      </div>
+                      <button
+                        onClick={() => {
+                          window.open("tel:5165953500", "_blank");
+                          setShowHeroOrderOptions(false);
+                        }}
+                        className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
+                      >
+                        Call Now
+                      </button>
+                      <button
+                        onClick={() => {
+                          window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
+                          setShowHeroOrderOptions(false);
+                        }}
+                        className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
+                      >
+                        View Menu
+                      </button>
+                    </div>
+                  )}
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-amber-400 animate-countUp">15+</div>
-                  <div className="text-sm text-gray-400">Locations</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-emerald-400 animate-countUp">4.9★</div>
-                  <div className="text-sm text-gray-400">Rating</div>
+                <div className="w-full sm:w-auto sm:max-w-xs">
+                  <button
+                    onClick={() => window.open("https://www.google.com/maps/place/12+Irving+Pl,+Woodmere,+NY+11598,+USA", "_blank")}
+                    className="group w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center justify-center gap-1"
+                  >
+                    <MapPin className="w-5 h-5 flex-shrink-0" />
+                    FIND LOCATION
+                    <ChevronDown className="w-5 h-5 flex-shrink-0 group-hover:animate-bounce" />
+                  </button>
                 </div>
               </div>
             </div>
             
-            {/* Right Content - Interactive Food Display */}
             <div className="relative animate-slideInRight">
               <div className="relative z-10 flex items-center justify-center">
-                {/* Main Burger Image */}
                 <div className="relative">
                   <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-emerald-500/20 rounded-full animate-spin-slow"></div>
                     <div className="absolute inset-4 bg-gradient-to-br from-amber-400/30 to-emerald-500/30 rounded-full animate-spin-reverse"></div>
                     <div className="absolute inset-8 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 overflow-hidden group hover:scale-110 transition-transform duration-700">
                       <img 
-                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=500&fit=crop" 
+                        src="/munchyswrap.jpg" 
                         alt="Ultimate MUNCHY'S GRILL" 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         onError={(e) => {
@@ -389,7 +448,6 @@ const MunchysGrillWebsite = () => {
                     </div>
                   </div>
                   
-                  {/* Floating Food Items Around Main Burger - Updated with PNG images */}
                   <div className="absolute -top-8 -left-8 w-24 h-24 animate-orbit-1">
                     <div className="w-full h-full bg-transparent overflow-hidden">
                       <img 
@@ -444,20 +502,50 @@ const MunchysGrillWebsite = () => {
                 </div>
               </div>
               
-              {/* Glowing Effects */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-emerald-500/10 rounded-full animate-pulse-glow"></div>
               <div className="absolute inset-10 bg-gradient-to-br from-amber-400/5 to-emerald-500/5 rounded-full animate-pulse-glow-reverse"></div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
+
+      {/* Hours Popup */}
+      {showHoursPopup && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-800">Hours of Operation</h2>
+              <button
+                onClick={() => setShowHoursPopup(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <div className="space-y-4 mb-6">
+              {hoursOfOperation.map((day, index) => (
+                <div key={index} className="flex justify-between text-gray-700">
+                  <span className="font-semibold">{day.day}</span>
+                  <span>{day.hours}</span>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => window.open("tel:5165953500", "_blank")}
+              className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
+            >
+              <Phone className="w-5 h-5" />
+              Call Now
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Promotions Section */}
       <section className="py-20 bg-gray-50">
@@ -480,7 +568,10 @@ const MunchysGrillWebsite = () => {
                   {promo.description && (
                     <p className="text-sm mb-6">{promo.description}</p>
                   )}
-                  <button className={`${promo.buttonColor} px-6 py-3 rounded-full font-bold transition-colors`}>
+                  <button 
+                    onClick={() => setShowHoursPopup(true)}
+                    className={`${promo.buttonColor} px-6 py-3 rounded-full font-bold transition-colors`}
+                  >
                     MORE INFO
                   </button>
                 </div>
@@ -493,14 +584,15 @@ const MunchysGrillWebsite = () => {
       {/* Best Dishes Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
-            TRY OUR BEST DISHES
+          <h2 className="text-4xl font-black text-center mb-12 text-gray-800">
+            Burgers/Baguette Sandwiches
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {bestDishes.map((dish, index) => (
-              <div
+              <button
                 key={index}
-                className="bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+                onClick={() => window.open(dish.link, '_blank')}
+                className="text-left bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
               >
                 <div className={`${dish.color} h-4`}></div>
                 <div className="p-6">
@@ -522,11 +614,15 @@ const MunchysGrillWebsite = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
+
           <div className="text-center mt-12">
-            <button className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors">
+            <button
+              onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+              className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors"
+            >
               SHOW ME THE MENU
             </button>
           </div>
@@ -542,8 +638,8 @@ const MunchysGrillWebsite = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 mb-8">
-                Started in woodmere NYC, MUNCHY'S GRILL in America. This local joint boasts a outstanding fusion of 
-                delicious burgers, crispy fries, and mouth-watering desserts.
+                Started in Woodmere NYC, MUNCHY'S GRILL in Five Towns Area. This local joint boasts a outstanding fusion of 
+                delicious burgers, crispy fries, and mouth-watering Shawarma
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {features.map((feature, index) => (
@@ -591,16 +687,10 @@ const MunchysGrillWebsite = () => {
             Order Catering From US!
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <select
-              value={activeLocation}
-              onChange={(e) => setActiveLocation(e.target.value)}
-              className="border border-gray-300 rounded-full px-6 py-3 font-semibold"
+            <button
+              onClick={() => window.open("tel:5165953500")}
+              className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors"
             >
-              <option>S Town - NY</option>
-              <option>Miami - FL</option>
-              <option>Los Angeles - CA</option>
-            </select>
-            <button className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors">
               ORDER NOW
             </button>
           </div>
@@ -635,13 +725,11 @@ const MunchysGrillWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">NEW YORK</h3>
+              <h3 className="text-xl font-bold mb-4">OUR LOCATION</h3>
               <div className="space-y-2 text-sm">
-                <p>12 Irving PI,</p>
-                <p>Woodmere</p>
-                <p>NYC 11598</p>
+                <p>12 Irving Pl,</p>
+                <p>Woodmere, NY 11598</p>
                 <p>Next to the Woodmere Fire House.</p>
-                
               </div>
             </div>
             <div>
@@ -659,7 +747,6 @@ const MunchysGrillWebsite = () => {
               <div className="space-y-2 text-sm">
                 <p>munchygrillny@gmail.com</p>
                 <p>516-595-3500</p>
-            
               </div>
             </div>
             <div>
@@ -667,6 +754,17 @@ const MunchysGrillWebsite = () => {
                 <Facebook className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
                 <Twitter className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
                 <Instagram className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
+              </div>
+              <div className="mt-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.3055876875637!2d-73.71566468459394!3d40.63231887934194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24e5b6b7e5f5b%3A0x9b9e8c1f4e5a2b3d!2s12%20Irving%20Pl%2C%20Woodmere%2C%20NY%2011598%2C%20USA!5e0!3m2!1sen!2us!4v1697051234567"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -1042,6 +1140,10 @@ const MunchysGrillWebsite = () => {
           object-fit: contain;
           margin-top: 14px;
           width: 150px;
+        }
+
+        .pb-8 {
+          padding-bottom: 10rem;
         }
       `}</style>
     </div>
