@@ -110,8 +110,8 @@ const MunchysGrillWebsite = () => {
     { day: 'Tuesday', hours: '11:00 AM - 1:00 AM' },
     { day: 'Wednesday', hours: '11:00 AM - 1:00 AM' },
     { day: 'Thursday', hours: '11:00 AM - 1:00 AM' },
-    { day: 'Friday', hours: '11:00 AM - One hour before Shabat' },
-    { day: 'Saturday', hours: 'One hour after Shabat - 1:00 AM' },
+    { day: 'Friday', hours: '11:00 AM - 4:00 PM' },
+    { day: 'Saturday', hours: '10:00 PM - 1:00 AM' },
   ];
 
   const promotions = [
@@ -241,7 +241,7 @@ const MunchysGrillWebsite = () => {
                 {showNavOrderOptions && (
                   <div className="absolute right-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
                     <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                      <h3 className="text-white font-semibold">Order Options</h3>
+                      <h3 className="text-white font-semibold"></h3>
                       <button
                         onClick={() => setShowNavOrderOptions(false)}
                         className="text-white hover:text-gray-200"
@@ -298,16 +298,16 @@ const MunchysGrillWebsite = () => {
                 </a>
               ))}
               <div className="relative">
-                <button
+                {/* <button
                   onClick={handleNavOrderClick}
                   className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
                 >
-                  ORDER NOW
-                </button>
+                  ORDER NOWs
+                </button> */}
                 {showNavOrderOptions && (
                   <div className="mt-2 w-full bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
                     <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                      <h3 className="text-white font-semibold">Order Options</h3>
+                      <h3 className="text-white font-semibold"></h3>
                       <button
                         onClick={() => setShowNavOrderOptions(false)}
                         className="text-white hover:text-gray-200"
@@ -387,7 +387,7 @@ const MunchysGrillWebsite = () => {
                   {showHeroOrderOptions && (
                     <div className="absolute left-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
                       <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                        <h3 className="text-white font-semibold">Order Options</h3>
+                        <h3 className="text-white font-semibold"></h3>
                         <button
                           onClick={() => setShowHeroOrderOptions(false)}
                           className="text-white hover:text-gray-200"
