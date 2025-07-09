@@ -11,7 +11,6 @@ import logoImg from '/public/logo2.png';
 const MunchysGrillWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeLocation, setActiveLocation] = useState('S Town - NY');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -43,8 +42,8 @@ const MunchysGrillWebsite = () => {
       description: 'The Classic Burger stacked with mouth watering sauce and toppings or add double meat your way.',
       price: '$17.50',
       color: 'bg-orange-400',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop',
-       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-1-classic-burger_78f6f67c-3cb5-46f3-91d3-c28ca808f071'
+      image: 'ClassicBurger.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-1-classic-burger_78f6f67c-3cb5-46f3-91d3-c28ca808f071'
     },
     {
       name: 'Cheese Burger',
@@ -52,22 +51,22 @@ const MunchysGrillWebsite = () => {
       price: '$19.50',
       color: 'bg-emerald-500',
       image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop',
-       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-2-cheese-burger_91bb5624-2209-44d1-8079-bbfe1d4d277c'
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-2-cheese-burger_91bb5624-2209-44d1-8079-bbfe1d4d277c'
     },
     {
       name: 'Schnitzel Burger',
       description: 'Stacked with a beef patty and crispy fried schnitzel along your choice of toppings. Big, bold, and packed with flavor.',
       price: '$26.00',
       color: 'bg-orange-500',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop',
-             link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-3-schnitzel-burger_551624fb-c85c-44a2-9c10-557cb57b455b'
+      image: '/SchnitzelBurger.png',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-3-schnitzel-burger_551624fb-c85c-44a2-9c10-557cb57b455b'
     },
     {
       name: 'Shnitzel Baguette',
       description: 'Golden crunchy shnitzel on a toasted baguette with your choice of toppings.',
       price: '$17.50',
       color: 'bg-emerald-400',
-      image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=200&fit=crop',
+      image: '/ShnitzelBaguette.jpg',
       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-4-shnitzel-baguette_9087235a-51d5-4c49-9582-662288758852'
     },
     {
@@ -75,16 +74,16 @@ const MunchysGrillWebsite = () => {
       description: 'Your choice of meat in a white or whole wheat wrap, with your sauce and toppings. Simple, fresh, and fire.',
       price: '$17.50',
       color: 'bg-orange-300',
-image: '/Shawarma.png',
+      image: '/munchyswrap.jpg',
       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-5-munchys-wrap_dbebf7a2-1009-43df-a8f6-731967979343'
     },
     {
-      name: 'Munchys Salad',
-      description: 'A hearty salad made to your taste.',
-      price: '$18.00',
+      name: 'Mazalito Chicken Shawarma',
+      description: 'Tender, spiced chicken shawarma served your way — in a warm laffa, soft pita, or fresh wrap. Customize with your favorite fresh veggies, each added to your taste.',
+      price: '$19.00',
       color: 'bg-emerald-300',
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop',
-      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-30-munchys-salad_ccabd6ac-bf1c-4534-bf7d-05065063b43b'
+      image: '/MazalitoShawarma.jpg',
+      link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-6-mazalito-chicken-shawarma_d4759acf-fbd4-456b-9501-082bb0f158ba'
     }
   ];
 
@@ -118,8 +117,8 @@ image: '/Shawarma.png',
   const features = [
     {
       icon: <MapPin className="w-8 h-8" />,
-      title: 'CONVENIENT LOCATIONS',
-      description: 'Multiple locations across the city',
+      title: 'CONVENIENT LOCATION',
+      description: 'Located in the heart of Woodmere',
       color: 'bg-orange-400'
     },
     {
@@ -143,14 +142,14 @@ image: '/Shawarma.png',
   ];
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=300&fit=crop',
+    '/HamsaLamb.jpg',
     'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop',
+    '/MazalitoShawarma.jpg',
     'https://images.unsplash.com/photo-1551782450-17144efb9c50?w=300&h=300&fit=crop',
     'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=300&h=300&fit=crop'
+    '/munchyswrap.jpg',
+    '/ShnitzelBaguette.jpg',
+    '/salad.png'
   ];
 
   if (isLoading) {
@@ -187,7 +186,6 @@ image: '/Shawarma.png',
                 className="w-24 h-24 object-contain"
                 style={{ marginTop: '14px' }}
                 onError={(e) => {
-                  // Fallback to gradient circle if logo doesn't load
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
@@ -208,13 +206,12 @@ image: '/Shawarma.png',
                   {item.name}
                 </a>
               ))}
-            <button
-  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
-  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
->
-  ORDER NOW
-</button>
-
+              <button
+                onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+                className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                ORDER NOW
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -240,15 +237,14 @@ image: '/Shawarma.png',
                   {item.name}
                 </a>
               ))}
-           <button
-  onClick={() =>
-    window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")
-  }
-  className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
->
-  ORDER NOW
-</button>
-
+              <button
+                onClick={() =>
+                  window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")
+                }
+                className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                ORDER NOW
+              </button>
             </div>
           </div>
         )}
@@ -256,20 +252,10 @@ image: '/Shawarma.png',
 
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-80px)] bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-        {/* Animated Background Video Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-emerald-500/30 to-teal-600/20"></div>
         
-        {/* Floating Food Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          
-        
-         
-        
-         
-       
-        </div>
+        <div className="absolute inset-0 overflow-hidden"></div>
 
-        {/* Animated Gradient Orbs */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-orange-400/30 to-emerald-500/30 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-teal-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse-slower"></div>
@@ -277,7 +263,6 @@ image: '/Shawarma.png',
 
         <div className="relative container mx-auto px-4 pt-20 pb-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-80px)]">
-            {/* Left Content */}
             <div className="text-white animate-slideInLeft">
               <div className="mb-4">
                 <span className="bg-gradient-to-r from-orange-400 to-emerald-500 text-black px-4 py-2 rounded-full font-bold text-sm animate-bounce-subtle">
@@ -287,64 +272,47 @@ image: '/Shawarma.png',
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
                 <span className="block animate-typewriter">IF YOU AIN'T THERE...</span>
-               
                 <span className="block animate-slideInUp">YOU AIN'T</span>
-                 <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow py-1 md:py-2">
+                <span className="block bg-gradient-to-r from-orange-300 via-amber-400 to-red-500 bg-clip-text text-transparent animate-glow py-1 md:py-2">
                   MUNCHING!
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl mb-6 text-gray-300 animate-fadeInUp max-w-lg">
-                Savor the sizzle at <span className="text-orange-400 font-bold">America’s go-to spot</span>, for 
-                <span className="text-amber-400 font-bold"> Kosher Smashed Burgers, </span> Shawarma, and Flame-Grilled Chicken 
-                <span className="text-emerald-400 font-bold">only at Munchys Grill.
-Real Flavor</span> Real Kosher. Real Munch.
+                Savor the sizzle at <span className="text-orange-400 font-bold">5 Town’s go-to spot</span>, for 
+                <span className="text-amber-400 font-bold"> Kosher Burgers, </span> Shawarma, and Flame-Grilled Chicken 
+                <span className="text-emerald-400 font-bold"> only at Munchys Grill.
+                Real Flavor</span> Real Kosher. Real Munch.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
-<button
-  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
-  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
->
-  ORDER NOW
-</button>
-
-<button className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center justify-center gap-2">
-  <MapPin className="w-5 h-5" />
-  FIND LOCATIONS
-  <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
-</button>
-
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mt-8 animate-fadeInUp">
-                <div className="text-center">
-                  <div className="text-2xl font-black text-orange-400 animate-countUp">5K+</div>
-                  <div className="text-xs text-gray-400">Happy Customers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-black text-amber-400 animate-countUp">3+</div>
-                  <div className="text-xs text-gray-400">Locations</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-black text-emerald-400 animate-countUp">4.9★</div>
-                  <div className="text-xs text-gray-400">Rating</div>
-                </div>
+                <button
+                  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+                  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                >
+                  ORDER NOW
+                </button>
+                <button
+                  onClick={() => window.open("https://www.google.com/maps/place/12+Irving+Pl,+Woodmere,+NY+11598,+USA", "_blank")}
+                  className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-bold text-md hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-110 shadow-2xl hover:shadow-orange-500/50 flex items-center justify-center gap-2"
+                >
+                  <MapPin className="w-5 h-5" />
+                  FIND LOCATION
+                  <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
+                </button>
               </div>
             </div>
             
-            {/* Right Content - Interactive Food Display */}
             <div className="relative animate-slideInRight">
               <div className="relative z-10 flex items-center justify-center">
-                {/* Main Burger Image */}
                 <div className="relative">
                   <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-emerald-500/20 rounded-full animate-spin-slow"></div>
                     <div className="absolute inset-4 bg-gradient-to-br from-amber-400/30 to-emerald-500/30 rounded-full animate-spin-reverse"></div>
                     <div className="absolute inset-8 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 overflow-hidden group hover:scale-110 transition-transform duration-700">
                       <img 
-                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=500&fit=crop" 
+                        src="/munchyswrap.jpg" 
+                        // src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=500&fit=crop"
                         alt="Ultimate MUNCHY'S GRILL" 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         onError={(e) => {
@@ -355,7 +323,6 @@ Real Flavor</span> Real Kosher. Real Munch.
                     </div>
                   </div>
                   
-                  {/* Floating Food Items Around Main Burger */}
                   <div className="absolute -top-8 -left-8 w-24 h-24 animate-orbit-1">
                     <div className="w-full h-full bg-transparent overflow-hidden">
                       <img 
@@ -410,14 +377,12 @@ Real Flavor</span> Real Kosher. Real Munch.
                 </div>
               </div>
               
-              {/* Glowing Effects */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-emerald-500/10 rounded-full animate-pulse-glow"></div>
               <div className="absolute inset-10 bg-gradient-to-br from-amber-400/5 to-emerald-500/5 rounded-full animate-pulse-glow-reverse"></div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
@@ -460,47 +425,46 @@ Real Flavor</span> Real Kosher. Real Munch.
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-black text-center mb-12 text-gray-800">
-           Burgers/Baguette Sandwiches
+            Burgers/Baguette Sandwiches
           </h2>
-         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {bestDishes.map((dish, index) => (
-    <button
-      key={index}
-      onClick={() => window.open(dish.link, '_blank')}
-      className="text-left bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-    >
-      <div className={`${dish.color} h-4`}></div>
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
-          <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">
-            {dish.price}
-          </span>
-        </div>
-        <p className="text-gray-600 mb-4">{dish.description}</p>
-        <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 overflow-hidden">
-          <img 
-            src={dish.image} 
-            alt={dish.name} 
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-            onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
-            }}
-          />
-        </div>
-      </div>
-    </button>
-  ))}
-</div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {bestDishes.map((dish, index) => (
+              <button
+                key={index}
+                onClick={() => window.open(dish.link, '_blank')}
+                className="text-left bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+              >
+                <div className={`${dish.color} h-4`}></div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
+                    <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">
+                      {dish.price}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4">{dish.description}</p>
+                  <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 overflow-hidden">
+                    <img 
+                      src={dish.image} 
+                      alt={dish.name} 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
+                      }}
+                    />
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
 
           <div className="text-center mt-12">
-           <button
-  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
-  className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors"
->
-  SHOW ME THE MENU
-</button>
-
+            <button
+              onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+              className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors"
+            >
+              SHOW ME THE MENU
+            </button>
           </div>
         </div>
       </section>
@@ -508,14 +472,14 @@ Real Flavor</span> Real Kosher. Real Munch.
       {/* About Section */}
       <section id="story" className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-black 600 text-center mb-12 text-gray-800">
+          <h2 className="text-5xl font-black text-center mb-12 text-gray-800">
             ABOUT US
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 mb-8">
-                Started in woodmere NYC, MUNCHY'S GRILL in America. This local joint boasts a outstanding fusion of 
-                delicious burgers, crispy fries, and mouth-watering desserts.
+                Started in Woodmere NYC, MUNCHY'S GRILL in Five Towns Area. This local joint boasts a outstanding fusion of 
+                delicious burgers, crispy fries, and mouth-watering Shawarma
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {features.map((feature, index) => (
@@ -563,17 +527,8 @@ Real Flavor</span> Real Kosher. Real Munch.
             Order Catering From US!
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <select
-              value={activeLocation}
-              onChange={(e) => setActiveLocation(e.target.value)}
-              className="border border-gray-300 rounded-full px-6 py-3 font-semibold"
-            >
-              <option>5 Town - NY</option>
-              <option>Miami - FL</option>
-              <option>Los Angeles - CA</option>
-            </select>
-          <button
-  onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+           <button
+  onClick={() => window.open("tel:5165953500")}
   className="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-colors"
 >
   ORDER NOW
@@ -611,13 +566,13 @@ Real Flavor</span> Real Kosher. Real Munch.
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">NEW YORK</h3>
+              <h3 className="text-xl font-bold mb-4">OUR LOCATION</h3>
               <div className="space-y-2 text-sm">
-                <p>12 Irving PI,</p>
-                <p>Woodmere</p>
-                <p>NYC 11598</p>
+                <p>12 Irving Pl,</p>
+                <p>Woodmere, NY 11598</p>
                 <p>Next to the Woodmere Fire House.</p>
               </div>
+             
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">MUNCHY'S GRILL</h3>
@@ -641,6 +596,17 @@ Real Flavor</span> Real Kosher. Real Munch.
                 <Facebook className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
                 <Twitter className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
                 <Instagram className="w-6 h-6 hover:text-emerald-400 cursor-pointer" />
+              </div>
+               <div className="mt-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.3055876875637!2d-73.71566468459394!3d40.63231887934194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24e5b6b7e5f5b%3A0x9b9e8c1f4e5a2b3d!2s12%20Irving%20Pl%2C%20Woodmere%2C%20NY%2011598%2C%20USA!5e0!3m2!1sen!2sus!4v1697051234567"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
