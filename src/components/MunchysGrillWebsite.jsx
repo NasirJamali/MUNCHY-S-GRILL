@@ -336,15 +336,7 @@ const MunchysGrillWebsite = () => {
         )}
       </nav>
 
-      {/* Vaad Logo */}
-      <div className="fixed top-16 right-4 z-30 hidden md:block">
-        <img src={vaadLogoImg} alt="Vaad Logo" className="w-20 h-20 object-contain" />
-      </div>
-      <div className="fixed top-16 right-2 z-30 md:hidden">
-        <img src={vaadLogoImg} alt="Vaad Logo" className="w-16 h-16 object-contain" />
-      </div>
-
-      {/* Hero Section */}
+      {/* Hero Section with Vaad Logo */}
       <section className="relative min-h-[calc(100vh-80px)] bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-emerald-500/30 to-teal-600/20"></div>
         
@@ -509,6 +501,14 @@ const MunchysGrillWebsite = () => {
               <div className="absolute inset-10 bg-gradient-to-br from-amber-400/5 to-emerald-500/5 rounded-full animate-pulse-glow-reverse"></div>
             </div>
           </div>
+        </div>
+
+        {/* Vaad Logo inside Hero Section */}
+        <div className="absolute top-20 right-4 z-50 hidden md:block">
+          <img src={vaadLogoImg} alt="Vaad Logo" className="w-20 h-20 object-contain" />
+        </div>
+        <div className="absolute top-20 right-2 z-50 md:hidden">
+          <img src={vaadLogoImg} alt="Vaad Logo" className="w-[149px] h-auto object-contain" />
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -1141,12 +1141,22 @@ const MunchysGrillWebsite = () => {
         .object-contain {
           -o-object-fit: contain;
           object-fit: contain;
-          margin-top: 14px;
-          width: 150px;
+          margin-top: -33px;
+          width: 124px;
+          height: auto;
+          image-rendering: -webkit-optimize-contrast;
+          -ms-interpolation-mode: bicubic;
         }
 
         .pb-8 {
           padding-bottom: 10rem;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
       `}</style>
     </div>
