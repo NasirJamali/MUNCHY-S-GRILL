@@ -1141,7 +1141,7 @@ const MunchysGrillWebsite = () => {
         .object-contain {
           -o-object-fit: contain;
           object-fit: contain;
-          margin-top: -33px;
+          margin-top: -27px;
           width: 124px;
           height: auto;
           image-rendering: -webkit-optimize-contrast;
