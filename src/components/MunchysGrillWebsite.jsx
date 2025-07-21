@@ -7,6 +7,7 @@ import pizzaImg from '/public/Shawarma2.png';
 import saladImg from '/public/salad.png';
 import drinkImg from '/public/salad2.png';
 import logoImg from '/public/logo2.png';
+import vaadLogoImg from '/public/vaadlogo.png'; // Add the Vaad logo image path here
 
 const MunchysGrillWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,15 +36,15 @@ const MunchysGrillWebsite = () => {
   const handleNavOrderClick = (e) => {
     e.stopPropagation();
     setShowNavOrderOptions(!showNavOrderOptions);
-    setShowHeroOrderOptions(false); // Close Hero popup
-    setIsMenuOpen(false); // Close mobile menu
+    setShowHeroOrderOptions(false);
+    setIsMenuOpen(false);
   };
 
   const handleHeroOrderClick = (e) => {
     e.stopPropagation();
     setShowHeroOrderOptions(!showHeroOrderOptions);
-    setShowNavOrderOptions(false); // Close Nav popup
-    setIsMenuOpen(false); // Close mobile menu
+    setShowNavOrderOptions(false);
+    setIsMenuOpen(false);
   };
 
   const menuItems = [
@@ -67,7 +68,7 @@ const MunchysGrillWebsite = () => {
       description: 'Juicy beef patty with melted cheese and your choice of toppings. Classic with a kick.',
       price: '$19.50',
       color: 'bg-emerald-500',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=300&h=200&fit=crop',
       link: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place/item-2-cheese-burger_91bb5624-2209-44d1-8079-bbfe1d4d277c'
     },
     {
@@ -298,12 +299,6 @@ const MunchysGrillWebsite = () => {
                 </a>
               ))}
               <div className="relative">
-                {/* <button
-                  onClick={handleNavOrderClick}
-                  className="w-full bg-emerald-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
-                >
-                  ORDER NOWs
-                </button> */}
                 {showNavOrderOptions && (
                   <div className="mt-2 w-full bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
                     <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
@@ -340,6 +335,14 @@ const MunchysGrillWebsite = () => {
           </div>
         )}
       </nav>
+
+      {/* Vaad Logo */}
+      <div className="fixed top-16 right-4 z-30 hidden md:block">
+        <img src={vaadLogoImg} alt="Vaad Logo" className="w-20 h-20 object-contain" />
+      </div>
+      <div className="fixed top-16 right-2 z-30 md:hidden">
+        <img src={vaadLogoImg} alt="Vaad Logo" className="w-16 h-16 object-contain" />
+      </div>
 
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-80px)] bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
@@ -518,7 +521,7 @@ const MunchysGrillWebsite = () => {
       {/* Hours Popup */}
       {showHoursPopup && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full mx-4">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full mx-2">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800">Hours of Operation</h2>
               <button
