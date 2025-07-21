@@ -1142,7 +1142,7 @@ const MunchysGrillWebsite = () => {
           -o-object-fit: contain;
           object-fit: contain;
           margin-top: -27px;
-          width: 124px;
+          width: 110px;
           height: auto;
           image-rendering: -webkit-optimize-contrast;
           -ms-interpolation-mode: bicubic;
