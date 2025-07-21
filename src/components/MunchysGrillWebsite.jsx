@@ -1139,6 +1139,7 @@ const MunchysGrillWebsite = () => {
         }
 
         .object-contain {
+        padding-top: 6px;
           -o-object-fit: contain;
           object-fit: contain;
           margin-top: -27px;
