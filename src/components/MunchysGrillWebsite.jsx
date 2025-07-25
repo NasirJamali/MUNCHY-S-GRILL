@@ -7,15 +7,14 @@ import pizzaImg from '/public/Shawarma2.png';
 import saladImg from '/public/salad.png';
 import drinkImg from '/public/salad2.png';
 import logoImg from '/public/logo2.png';
-import vaadLogoImg from '/public/vaadlogo.png'; // Add the Vaad logo image path here
+import vaadLogoImg from '/public/vaadlogo.png';
 
 const MunchysGrillWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showNavOrderOptions, setShowNavOrderOptions] = useState(false);
-  const [showHeroOrderOptions, setShowHeroOrderOptions] = useState(false);
   const [showHoursPopup, setShowHoursPopup] = useState(false);
+  const [showLogoFallback, setShowLogoFallback] = useState(false); // New state for logo fallback
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,25 +32,12 @@ const MunchysGrillWebsite = () => {
     };
   }, []);
 
-  const handleNavOrderClick = (e) => {
-    e.stopPropagation();
-    setShowNavOrderOptions(!showNavOrderOptions);
-    setShowHeroOrderOptions(false);
-    setIsMenuOpen(false);
-  };
-
-  const handleHeroOrderClick = (e) => {
-    e.stopPropagation();
-    setShowHeroOrderOptions(!showHeroOrderOptions);
-    setShowNavOrderOptions(false);
-    setIsMenuOpen(false);
-  };
-
   const menuItems = [
+    { name: 'CALL NOW', href: 'tel:5165953500' },
     { name: 'OUR STORY', href: '#story' },
     { name: 'MENU', href: 'https://order.toasttab.com/online/munchy-s-grill-12-irving-place' },
     { name: 'CATERING', href: '#catering' },
-    { name: 'LOCATIONS', href: '#locations' },
+    { name: 'LOCATIONS', href: 'https://www.google.com/maps/place/12+Irving+Pl,+Woodmere,+NY+11598,+USA' },
   ];
 
   const bestDishes = [
@@ -189,9 +175,7 @@ const MunchysGrillWebsite = () => {
             alt="Munchy's Grill Logo" 
             className="w-40 h-40 object-contain mb-4"
             style={{ marginTop: '14px' }}
-            onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/128x128?text=Logo+Not+Available';
-            }}
+            onError={() => setShowLogoFallback(true)}
           />
           <div className="animate-spin w-16 h-16 border-4 border-white border-t-transparent rounded-full mb-4"></div>
           <p className="text-white text-lg">Loading delicious content...</p>
@@ -207,19 +191,19 @@ const MunchysGrillWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
-              <img 
-                src={logoImg} 
-                alt="Munchy's Grill Logo" 
-                className="w-24 h-24 object-contain"
-                style={{ marginTop: '14px' }}
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-full flex items-center justify-center" style={{display: 'none'}}>
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
+              {showLogoFallback ? (
+                <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">M</span>
+                </div>
+              ) : (
+                <img 
+                  src={logoImg} 
+                  alt="Munchy's Grill Logo" 
+                  className="w-24 h-24 object-contain"
+                  style={{ marginTop: '14px' }}
+                  onError={() => setShowLogoFallback(true)}
+                />
+              )}
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -232,54 +216,17 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <div className="relative">
-                <button
-                  onClick={handleNavOrderClick}
-                  className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
-                >
-                  ORDER NOW
-                </button>
-                {showNavOrderOptions && (
-                  <div className="absolute right-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
-                    <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                      <h3 className="text-white font-semibold"></h3>
-                      <button
-                        onClick={() => setShowNavOrderOptions(false)}
-                        className="text-white hover:text-gray-200"
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => {
-                        window.open("tel:5165953500", "_blank");
-                        setShowNavOrderOptions(false);
-                      }}
-                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
-                    >
-                      Call Now
-                    </button>
-                    <button
-                      onClick={() => {
-                        window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
-                        setShowNavOrderOptions(false);
-                      }}
-                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
-                    >
-                      View Menu
-                    </button>
-                  </div>
-                )}
-              </div>
+              <button
+                onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+                className="bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                ORDER NOW
+              </button>
             </div>
 
             <button
               className={`md:hidden ${isScrolled ? 'text-gray-800' : 'text-white'}`}
-              onClick={() => {
-                setIsMenuOpen(!isMenuOpen);
-                setShowNavOrderOptions(false);
-                setShowHeroOrderOptions(false);
-              }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -298,39 +245,12 @@ const MunchysGrillWebsite = () => {
                   {item.name}
                 </a>
               ))}
-              <div className="relative">
-                {showNavOrderOptions && (
-                  <div className="mt-2 w-full bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
-                    <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                      <h3 className="text-white font-semibold"></h3>
-                      <button
-                        onClick={() => setShowNavOrderOptions(false)}
-                        className="text-white hover:text-gray-200"
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => {
-                        window.open("tel:5165953500", "_blank");
-                        setShowNavOrderOptions(false);
-                      }}
-                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
-                    >
-                      Call Now
-                    </button>
-                    <button
-                      onClick={() => {
-                        window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
-                        setShowNavOrderOptions(false);
-                      }}
-                      className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
-                    >
-                      View Menu
-                    </button>
-                  </div>
-                )}
-              </div>
+              <button
+                onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
+                className="block w-full text-left px-3 py-2 text-gray-700 hover:text-emerald-500 font-semibold"
+              >
+                ORDER NOW
+              </button>
             </div>
           </div>
         )}
@@ -374,42 +294,11 @@ const MunchysGrillWebsite = () => {
               <div className="flex flex-col sm:flex-row gap-3 animate-slideInUp">
                 <div className="w-full sm:w-auto">
                   <button
-                    onClick={handleHeroOrderClick}
+                    onClick={() => window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank")}
                     className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-emerald-700 transition-colors shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-110"
                   >
                     ORDER NOW
                   </button>
-                  {showHeroOrderOptions && (
-                    <div className="absolute left-0 mt-2 w-48 bg-gradient-to-br from-orange-400 to-emerald-500 rounded-lg shadow-xl z-[100] overflow-hidden">
-                      <div className="flex justify-between items-center px-4 py-2 bg-orange-500/50">
-                        <h3 className="text-white font-semibold"></h3>
-                        <button
-                          onClick={() => setShowHeroOrderOptions(false)}
-                          className="text-white hover:text-gray-200"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
-                      <button
-                        onClick={() => {
-                          window.open("tel:5165953500", "_blank");
-                          setShowHeroOrderOptions(false);
-                        }}
-                        className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-orange-500 transition-colors"
-                      >
-                        Call Now
-                      </button>
-                      <button
-                        onClick={() => {
-                          window.open("https://order.toasttab.com/online/munchy-s-grill-12-irving-place", "_blank");
-                          setShowHeroOrderOptions(false);
-                        }}
-                        className="block w-full text-left px-4 py-3 text-white font-semibold hover:bg-emerald-600 transition-colors"
-                      >
-                        View Menu
-                      </button>
-                    </div>
-                  )}
                 </div>
                 <div className="w-full sm:w-auto sm:max-w-xs">
                   <button
@@ -1139,7 +1028,7 @@ const MunchysGrillWebsite = () => {
         }
 
         .object-contain {
-        padding-top: 6px;
+          padding-top: 6px;
           -o-object-fit: contain;
           object-fit: contain;
           margin-top: -27px;
